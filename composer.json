@@ -2,6 +2,13 @@
   "name": "ashirchkov/yandex-logistics",
   "license": "MIT",
   "description": "PHP SDK for Yandex logistics (same day and another day) delivery api services",
+  "authors": [
+    {
+      "name": "Alexey Shirchkov",
+      "email": "alexey.shirchkov@yandex.ru",
+      "role": "Developer"
+    }
+  ],
   "require": {
     "php": ">=8.0",
     "ext-json": "*",
