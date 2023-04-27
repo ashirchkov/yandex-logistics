@@ -12,8 +12,6 @@
 
 ## Возможности:
 
-> *Не отмеченные возможности еще не реализованы*
-
 **API Яндекс Доставки в другой день**
 
 - [x] Подготовка заявки
@@ -408,7 +406,7 @@ $params = [
     ]
 ]
 
-$response = $client->anotherDay()->label()->getHandoverAct($params);
+$response = $apiClient->anotherDay()->label()->getHandoverAct($params);
 
 if ($response->isSuccess()) {
     var_dump($response->getResult());
