@@ -1,7 +1,7 @@
 {
   "name": "ashirchkov/yandex-logistics",
   "license": "MIT",
-  "description": "PHP SDK for Yandex logistics next day delivery api services",
+  "description": "PHP SDK for Yandex logistics (same day and another day) delivery api services",
   "require": {
     "php": ">=8.0",
     "ext-json": "*",
