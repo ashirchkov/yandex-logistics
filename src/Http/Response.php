@@ -2,10 +2,10 @@
 
 namespace AlexeyShirchkov\Yandex\Logistics\Http;
 
+use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
 use Psr\Http\Message\ResponseInterface;
-use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
 
 class Response
 {
@@ -32,7 +32,7 @@ class Response
 
         $this->status = $response->getStatusCode();
         $this->headers = $response->getHeaders();
-        $this->body = $result = (string) $response->getBody();
+        $this->body = $result = (string)$response->getBody();
 
         if (
             !\in_array($result, ['', 'null', 'true', 'false'], true) &&
@@ -45,12 +45,12 @@ class Response
 
         if (!$this->isSuccess()) {
             // Oh this Yandex....
-            if (!empty($result['message'])) {
+            if (!empty($result['error_details'])) {
+                $this->errors = $result['error_details'];
+            } else if (!empty($result['message'])) {
                 $this->errors[] = $result['message'];
             } else if (!empty($result['description'])) {
                 $this->errors[] = $result['description'];
-            } else if (!empty($result['error_details'])) {
-                $this->errors[] = $result['error_details'];
             } else if (!empty($result['details']['debug_message'])) {
                 $this->errors[] = $result['details']['debug_message'];
             } else {
